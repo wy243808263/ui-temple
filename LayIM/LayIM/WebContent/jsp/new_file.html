@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="./db/db.js"></script>
+		<script type="text/javascript">
+			var queryData = function(){
+				db.transaction(function (tx) {
+					tx.executeSql("select * from user", [], function (tx, result) { //执行成功的回调函数
+						console.log(result);
+					},function (tx, error) {
+						alert('查询失败: ' + error.message);
+					});
+				});
+			};
+			
+			queryData();
+		</script>
+	</head>
+
+	<body>
+	</body>
+</html>
